@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Create New Page
+{% endblock %}
+
+{% block body %}
+    <h1>Create New Wiki</h1>
+    
+    INFO: You will get redirected if your entry is saved
+
+    <br></br>
+    {% if val == "1"%}
+        <strong>{{ errMsg }}</strong>
+    {% endif %}
+
+    <br></br>
+
+    <form action="{% url 'encyclopedia:create'%}" method="POST">
+        {% csrf_token %}        
+        <input type="text" name="title">
+        <br></br>
+        <strong>Enter Content</strong>
+        <br></br>
+        <textarea class="content" name="content" rows="5" cols="30">
+        </textarea>
+        <br></br>
+        <input type="submit" name="submit">
+    </form>
+{% endblock %}

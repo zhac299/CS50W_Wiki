@@ -1,0 +1,17 @@
+{% extends 'encyclopedia/layout.html' %}
+
+{% block title %}
+    {{wikititle}}
+{% endblock %}
+
+{% block body %}
+
+    {% if val == "1"%}
+        <h1>{{ wikititle }}</h1>
+    {% endif %}
+
+    {{wikidetail|safe}}
+    
+
+    <a href="{% url 'encyclopedia:edit' wikititle %}"><strong>Edit</strong></a>
+{% endblock %}

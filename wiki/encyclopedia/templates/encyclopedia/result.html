@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block body %}
+
+    <h1>Search Results:</h1>
+        {% if val == "1" %}
+            <a href="/wiki/{{ query }}">{{ query }}</a>
+        {% endif %}
+
+        {% if val == "2" %}
+            <ul>
+                {% for entry in subList %}
+                    <li><a href="/wiki/{{ entry }}">{{ entry }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if val == "3"%}
+           <h2> {{ noEnt }} </h2>
+        {% endif %}
+
+{% endblock %}
